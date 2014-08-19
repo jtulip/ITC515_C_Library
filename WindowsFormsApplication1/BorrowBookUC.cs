@@ -1,8 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using Library.Interfaces.Uis;
+using Library.Interfaces.Controls;
 
 namespace Library
 {
@@ -16,7 +19,9 @@ namespace Library
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BorrowBook());
+            BorrowBookUI gui = new BorrowBookUI();
+            gui.initialise(null);
+            Application.Run(gui);
         }
     }
 }

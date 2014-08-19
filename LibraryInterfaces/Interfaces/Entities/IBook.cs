@@ -42,6 +42,5 @@ namespace Library.Interfaces.Entities
         {
             get;
         }
-
     }
 }

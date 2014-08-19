@@ -1,6 +1,6 @@
 ﻿namespace Library
 {
-    partial class BorrowBook
+    partial class BorrowBookUI
     {
         /// <summary>
         /// Required designer variable.

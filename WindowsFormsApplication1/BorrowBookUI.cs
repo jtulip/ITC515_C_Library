@@ -6,24 +6,26 @@ using System.Collections.Generic;
 //using System.Linq;
 //using System.Text;
 //using System.Threading.Tasks;
+using Library.Interfaces.Uis;
 using System.Windows.Forms;
 
-using Library.Interfaces.Uis;
 using Library.Interfaces.Controls;
 using Library.Interfaces.Entities;
 
 namespace Library
 {
-    public partial class BorrowBook : Form, IBorrowUI
+    public partial class BorrowBookUI : Form, IBorrowUI
     {
         private IBorrowCTL control;
 
-        public BorrowBook()
+        public BorrowBookUI()
         {
             InitializeComponent();
         }
         public void initialise(IBorrowCTL control)
         {
+            this.control = control;
+
             swipe_BTN.Enabled = true;
             scan_BTN.Enabled = false;
             continue_BTN.Enabled = false;
@@ -82,7 +84,7 @@ namespace Library
 
         private void cancel_BTN_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void scan_BTN_Click(object sender, EventArgs e)
