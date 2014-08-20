@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Impl\Entities\Book.cs" />
+    <Compile Include="Impl\Entities\Member.cs" />
     <Compile Include="Impl\Exceptions\IllegalStateTransitionException.cs" />
     <Compile Include="Interfaces\Controls\BorrowCTLConstants.cs" />
     <Compile Include="Interfaces\Controls\IBorrowCTL.cs" />
