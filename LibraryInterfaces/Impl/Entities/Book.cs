@@ -6,7 +6,7 @@ using Library.Impl.Exceptions;
 
 namespace Library.Impl.Entities
 {
-    class Book : IBook
+    public class Book : IBook
     {
         public Book(string author, string title, string callNumber, int bookID)
         {
@@ -32,7 +32,7 @@ namespace Library.Impl.Entities
         }
 
 
-        public void borrow(ILoan loan)
+        public void Borrow(ILoan loan)
         {
             if (loan == null)
             {
@@ -47,7 +47,6 @@ namespace Library.Impl.Entities
             state = BookConstants.BookState.ON_LOAN;
 
         }
-
         private ILoan loan;
         public ILoan Loan
         {
@@ -56,7 +55,7 @@ namespace Library.Impl.Entities
 
 
 
-        public void returnBook(bool damaged)
+        public void ReturnBook(bool damaged)
         {
             if (!(state == BookConstants.BookState.ON_LOAN || state == BookConstants.BookState.LOST))
             {
@@ -75,7 +74,7 @@ namespace Library.Impl.Entities
 
 
 
-        public void lose()
+        public void Lose()
         {
             if (!(state == BookConstants.BookState.ON_LOAN))
             {
@@ -84,7 +83,7 @@ namespace Library.Impl.Entities
             state = BookConstants.BookState.LOST;
         }
 
-        public void repair()
+        public void Repair()
         {
             if (!(state == BookConstants.BookState.DAMAGED))
             {
@@ -93,7 +92,7 @@ namespace Library.Impl.Entities
             state = BookConstants.BookState.AVAILABLE;
         }
 
-        public void dispose()
+        public void Dispose()
         {
             if (!(state == BookConstants.BookState.AVAILABLE || 
                   state == BookConstants.BookState.DAMAGED || 

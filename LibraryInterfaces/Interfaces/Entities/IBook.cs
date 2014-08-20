@@ -3,20 +3,20 @@ namespace Library.Interfaces.Entities
 {
     public interface IBook
     {
-        void borrow(ILoan loan);
+        void Borrow(ILoan loan);
 
         ILoan Loan
         {
             get;
         }
 
-        void returnBook(bool damaged);
+        void ReturnBook(bool damaged);
 
-        void lose();
+        void Lose();
 
-        void repair();
+        void Repair();
 
-        void dispose();
+        void Dispose();
 
         BookConstants.BookState State
         {
