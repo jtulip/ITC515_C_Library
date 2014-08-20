@@ -41,7 +41,7 @@ namespace Library.Impl.Entities
             if (!(state == BookConstants.BookState.AVAILABLE))
             {
                 string mesg = String.Format("Illegal operation in state : {0}", state);
-                throw new IllegalStateTransitionException(mesg);
+                throw new IllegalStateException(mesg);
             }
             this.loan = loan;
             state = BookConstants.BookState.ON_LOAN;
@@ -59,7 +59,7 @@ namespace Library.Impl.Entities
         {
             if (!(state == BookConstants.BookState.ON_LOAN || state == BookConstants.BookState.LOST))
             {
-                throw new IllegalStateTransitionException(String.Format("Illegal operation in state : {0}", state));
+                throw new IllegalStateException(String.Format("Illegal operation in state : {0}", state));
             }
             loan = null;
             if (damaged)
@@ -78,7 +78,7 @@ namespace Library.Impl.Entities
         {
             if (!(state == BookConstants.BookState.ON_LOAN))
             {
-                throw new IllegalStateTransitionException(String.Format("Illegal operation in state : {0}", state));
+                throw new IllegalStateException(String.Format("Illegal operation in state : {0}", state));
             }
             state = BookConstants.BookState.LOST;
         }
@@ -87,7 +87,7 @@ namespace Library.Impl.Entities
         {
             if (!(state == BookConstants.BookState.DAMAGED))
             {
-                throw new IllegalStateTransitionException(String.Format("Illegal operation in state : {0}", state));
+                throw new IllegalStateException(String.Format("Illegal operation in state : {0}", state));
             }
             state = BookConstants.BookState.AVAILABLE;
         }
@@ -98,7 +98,7 @@ namespace Library.Impl.Entities
                   state == BookConstants.BookState.DAMAGED || 
                   state == BookConstants.BookState.LOST))
             {
-                throw new IllegalStateTransitionException(String.Format("Illegal operation in state : {0}", state));
+                throw new IllegalStateException(String.Format("Illegal operation in state : {0}", state));
             }
             state = BookConstants.BookState.DISPOSED;
         }

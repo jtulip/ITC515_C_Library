@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="TestBook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestMember.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryInterfaces\Library.csproj">

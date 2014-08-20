@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Library.Impl.Exceptions
 {
-    class IllegalStateTransitionException : Exception
+    class IllegalStateException : Exception
     {
         private string mesg;
 
-        public IllegalStateTransitionException(string mesg)
+        public IllegalStateException(string mesg)
         {
             this.mesg = mesg;
         }
