@@ -2,11 +2,11 @@
 
 namespace Library.Impl.Exceptions
 {
-    public class IllegalStateTransitionException : Exception
+    public class BorrowerNotFoundException : Exception
     {
         private string mesg;
 
-        public IllegalStateTransitionException(string mesg)
+        public BorrowerNotFoundException(string mesg)
         {
             this.mesg = mesg;
         }
