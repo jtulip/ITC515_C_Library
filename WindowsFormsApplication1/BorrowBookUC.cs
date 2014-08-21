@@ -20,7 +20,7 @@ namespace Library
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             BorrowBookUI gui = new BorrowBookUI();
-            gui.initialise(null);
+            gui.Initialise(null);
             Application.Run(gui);
         }
     }

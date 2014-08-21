@@ -8,21 +8,21 @@ namespace Library.Interfaces.Uis
 {
     public interface IBorrowUI
     {
-        void initialise(IBorrowCTL control);
+        void Initialise(IBorrowCTL control);
 
-        void setState(BorrowCTLConstants.State state);
+        void SetState(BorrowCTLConstants.State state);
 
-        void displayBorrowerDetails(IMember borrower);
+        void DisplayBorrowerDetails(IMember borrower);
 
-        void scanBook();
+        void ScanBook();
 
-        void displayBook(IBook book);
+        void DisplayBook(IBook book);
 
-        void displayPendingList(List<ILoan> pendingList);
+        void DisplayPendingList(List<ILoan> pendingList);
 
-        void displayCompletedList(List<ILoan> pendingList);
+        void DisplayCompletedList(List<ILoan> pendingList);
 
-        void printLoanSlip();
+        void PrintLoanSlip();
 
     }
 }

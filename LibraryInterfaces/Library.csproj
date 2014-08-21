@@ -44,23 +44,25 @@
   <ItemGroup>
     <Compile Include="Impl\Entities\Book.cs" />
     <Compile Include="Impl\Entities\Member.cs" />
-    <Compile Include="Impl\Exceptions\IllegalStateTransitionException.cs" />
+    <Compile Include="Impl\Exceptions\IllegalStateException.cs" />
     <Compile Include="Interfaces\Controls\BorrowCTLConstants.cs" />
     <Compile Include="Interfaces\Controls\IBorrowCTL.cs" />
+    <Compile Include="Interfaces\Daos\IBookDAO.cs" />
+    <Compile Include="Interfaces\Daos\ILoanDAO.cs" />
+    <Compile Include="Interfaces\Daos\IMemberDAO.cs" />
     <Compile Include="Interfaces\Entities\BookConstants.cs" />
     <Compile Include="Interfaces\Entities\IBook.cs" />
     <Compile Include="Interfaces\Entities\ILoan.cs" />
     <Compile Include="Interfaces\Entities\IMember.cs" />
     <Compile Include="Interfaces\Entities\LoanConstants.cs" />
     <Compile Include="Interfaces\Entities\MemberConstants.cs" />
+    <Compile Include="Interfaces\Helpers\IBookHelper.cs" />
+    <Compile Include="Interfaces\Helpers\ILoanHelper.cs" />
+    <Compile Include="Interfaces\Helpers\IMemberHelper.cs" />
     <Compile Include="Interfaces\Uis\IBorrowUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Impl\Controls\" />
-    <Folder Include="Interfaces\Daos\" />
-    <Folder Include="Interfaces\Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BorrowBookCTL.cs" />
     <Compile Include="BorrowBookUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -51,9 +52,27 @@
       <DependentUpon>BorrowBookUI.cs</DependentUpon>
     </Compile>
     <Compile Include="BorrowBookUC.cs" />
+    <Compile Include="ConfirmCompleteDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmCompleteDialog.Designer.cs">
+      <DependentUpon>ConfirmCompleteDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintLoanSlipDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintLoanSlipDialog.Designer.cs">
+      <DependentUpon>PrintLoanSlipDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BorrowBookUI.resx">
       <DependentUpon>BorrowBookUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmCompleteDialog.resx">
+      <DependentUpon>ConfirmCompleteDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintLoanSlipDialog.resx">
+      <DependentUpon>PrintLoanSlipDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
