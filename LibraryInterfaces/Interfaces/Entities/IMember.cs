@@ -43,22 +43,22 @@ namespace Library.Interfaces.Entities
 
         void RemoveLoan(ILoan loan);
 
-        String FirstName
+        string FirstName
         {
             get;
         }
 
-        String LastName
+        string LastName
         {
             get;
         }
 
-        String ContactPhone
+        string ContactPhone
         {
             get;
         }
 
-        String EmailAddress
+        string EmailAddress
         {
             get;
         }
@@ -68,7 +68,10 @@ namespace Library.Interfaces.Entities
             get;
         }
 
-        MemberConstants.MemberState getState();
+        MemberConstants.MemberState State
+        {
+            get;
+        }
 
     }
 }

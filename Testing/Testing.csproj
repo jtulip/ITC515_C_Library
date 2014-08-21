@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9BE0FA84-04AE-4C91-850E-0D2134974EEB}</ProjectGuid>
+    <ProjectGuid>{65137267-F3C9-456A-8B22-9C0FC443A23F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Library</RootNamespace>
-    <AssemblyName>LibraryInterfaces</AssemblyName>
+    <RootNamespace>Testing</RootNamespace>
+    <AssemblyName>Testing</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,9 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Collections.Immutable">
-      <HintPath>..\packages\Microsoft.Bcl.Immutable.1.1.22-beta\lib\portable-net45+win8+wpa81\System.Collections.Immutable.dll</HintPath>
-    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,26 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Impl\Entities\Book.cs" />
-    <Compile Include="Impl\Entities\Member.cs" />
-    <Compile Include="Impl\Exceptions\IllegalStateTransitionException.cs" />
-    <Compile Include="Interfaces\Controls\BorrowCTLConstants.cs" />
-    <Compile Include="Interfaces\Controls\IBorrowCTL.cs" />
-    <Compile Include="Interfaces\Entities\BookConstants.cs" />
-    <Compile Include="Interfaces\Entities\IBook.cs" />
-    <Compile Include="Interfaces\Entities\ILoan.cs" />
-    <Compile Include="Interfaces\Entities\IMember.cs" />
-    <Compile Include="Interfaces\Entities\LoanConstants.cs" />
-    <Compile Include="Interfaces\Entities\MemberConstants.cs" />
-    <Compile Include="Interfaces\Uis\IBorrowUI.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\Daos\" />
-    <Folder Include="Interfaces\Helpers\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
