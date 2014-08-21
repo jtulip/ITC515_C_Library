@@ -31,7 +31,7 @@ namespace Library
             continue_BTN.Enabled = false;
             complete_BTN.Enabled = false;
             cancel_BTN.Enabled = true;
-            memberID_TB.ReadOnly = true;
+            memberID_TB.ReadOnly = false;
             bookID_TB.ReadOnly = true;
 
             name_LBL.Text = "";

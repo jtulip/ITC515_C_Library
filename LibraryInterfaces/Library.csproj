@@ -57,6 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Impl\Controls\" />
     <Folder Include="Interfaces\Daos\" />
     <Folder Include="Interfaces\Helpers\" />
   </ItemGroup>
