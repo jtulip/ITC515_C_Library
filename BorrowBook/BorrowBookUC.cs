@@ -1,11 +1,5 @@
 ﻿using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Threading.Tasks;
 using System.Windows.Forms;
-
-//using Moq;
-using NMock;
 
 using Library.Interfaces.Uis;
 using Library.Interfaces.Controls;
