@@ -36,6 +36,7 @@ namespace LibraryTests
             var borrower = new Member(null, lName, contact, email, id);
         }
 
+/*
         [TestMethod]
         public void TestAddLoan()
         {
@@ -52,6 +53,6 @@ namespace LibraryTests
             Assert.IsNotNull(borrower);
             Assert.IsTrue(borrower is IMember);
         }
-
+*/
     }
 }

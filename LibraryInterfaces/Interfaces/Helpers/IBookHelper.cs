@@ -2,7 +2,7 @@
 
 namespace Library.Interfaces.Helpers
 {
-    interface IBookHelper
+    public interface IBookHelper
     {
         IBook MakeBook(string author, string title, string callNumber, int id);
 

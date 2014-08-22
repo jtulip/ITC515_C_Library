@@ -212,7 +212,7 @@
             // existingLoan_TB
             // 
             this.existingLoan_TB.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.existingLoan_TB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.existingLoan_TB.Font = new System.Drawing.Font("Lucida Sans Typewriter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.existingLoan_TB.Location = new System.Drawing.Point(12, 30);
             this.existingLoan_TB.Multiline = true;
             this.existingLoan_TB.Name = "existingLoan_TB";
@@ -363,7 +363,7 @@
             // pendingList_TB
             // 
             this.pendingList_TB.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pendingList_TB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pendingList_TB.Font = new System.Drawing.Font("Lucida Sans Typewriter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pendingList_TB.Location = new System.Drawing.Point(11, 31);
             this.pendingList_TB.Multiline = true;
             this.pendingList_TB.Name = "pendingList_TB";
@@ -395,7 +395,7 @@
             // currentBook_TB
             // 
             this.currentBook_TB.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.currentBook_TB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentBook_TB.Font = new System.Drawing.Font("Lucida Sans Typewriter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentBook_TB.Location = new System.Drawing.Point(11, 27);
             this.currentBook_TB.Multiline = true;
             this.currentBook_TB.Name = "currentBook_TB";
@@ -423,7 +423,7 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Current Loan";
             // 
-            // BorrowBook
+            // BorrowBookUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -438,7 +438,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "BorrowBook";
+            this.Name = "BorrowBookUI";
             this.Text = "Borrow Book";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

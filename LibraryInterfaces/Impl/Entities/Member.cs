@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Library.Interfaces.Entities;
-using Library.Impl.Exceptions;
+//using Library.Impl.Exceptions;
 
 namespace Library.Impl.Entities
 {
@@ -39,35 +39,31 @@ namespace Library.Impl.Entities
                     );
         }
 
-        private bool hasOverDueLoans;
         public bool HasOverDueLoans
         {
             get 
             {
                 foreach (ILoan loan in loanList)
                 {
-                    if (loan.IsOverDue) return false;
+                    if (loan.IsOverDue) return true;
                 } 
-				return true;
+				return false;
 			}
         }
 
-        private bool hasReachedLoanLimit;
         public bool HasReachedLoanLimit
         {
             get { return loanList.Count >= MemberConstants.LOAN_LIMIT; }
         }
 
-        private bool hasFinesPayable;
         public bool HasFinesPayable
         {
             get { return fineAmount > 0.0f; }
         }
 
-        private bool hasReachedFineLimit;
         public bool HasReachedFineLimit
         {
-            get { return fineAmount > MemberConstants.FINE_LIMIT; }
+            get { return fineAmount >= MemberConstants.FINE_LIMIT; }
         }
 
         private float fineAmount;
@@ -105,7 +101,7 @@ namespace Library.Impl.Entities
             if (!BorrowingAllowed)
             {
                 string mesg = String.Format("Member: AddLoan : illegal operation in state: {0}", state);
-                throw new IllegalStateException(mesg);
+                throw new ApplicationException(mesg);
             }
             loanList.Add(loan);
             updateState();
@@ -114,7 +110,8 @@ namespace Library.Impl.Entities
         private List<ILoan> loanList;
         public List<ILoan> Loans
         {
-            get {
+            get 
+            {
                 return new List<ILoan>(loanList);
             }
         }
@@ -192,9 +189,14 @@ namespace Library.Impl.Entities
 
         public override string ToString()
         {
-            return String.Format(
-                    "Id: {0}\nName: {1} {2}\nContact Phone: {3}\nEmail: {4}\nOutstanding Charges: {5:0.00}", id,
-                    firstName, lastName, contactPhone, emailAddress, fineAmount);
+            string cr = Environment.NewLine;
+            return String.Format("{1,-20}\t{2} {0}{3,-20}\t{4}{5} {0}{6,-20}\t{7} {0}{8,-20}\t{9} {0}{10,-20}\t{11:$0.00}",
+				                  cr, 
+                                  "Id:                  ",id, 
+                                  "Name:                ",firstName, lastName,
+                                  "Contact Phone:       ",contactPhone, 
+                                  "Email Address:       ",emailAddress,
+                                  "Outstanding Charges: ", fineAmount);
         }
 
 

@@ -2,7 +2,6 @@
 //using System.Collections.Generic;
 
 using Library.Interfaces.Entities;
-using Library.Impl.Exceptions;
 
 namespace Library.Impl.Entities
 {
@@ -41,7 +40,7 @@ namespace Library.Impl.Entities
             if (!(state == BookConstants.BookState.AVAILABLE))
             {
                 string mesg = String.Format("Illegal operation in state : {0}", state);
-                throw new IllegalStateException(mesg);
+                throw new ApplicationException(mesg);
             }
             this.loan = loan;
             state = BookConstants.BookState.ON_LOAN;
@@ -59,7 +58,7 @@ namespace Library.Impl.Entities
         {
             if (!(state == BookConstants.BookState.ON_LOAN || state == BookConstants.BookState.LOST))
             {
-                throw new IllegalStateException(String.Format("Illegal operation in state : {0}", state));
+                throw new ApplicationException(String.Format("Illegal operation in state : {0}", state));
             }
             loan = null;
             if (damaged)
@@ -78,7 +77,7 @@ namespace Library.Impl.Entities
         {
             if (!(state == BookConstants.BookState.ON_LOAN))
             {
-                throw new IllegalStateException(String.Format("Illegal operation in state : {0}", state));
+                throw new ApplicationException(String.Format("Illegal operation in state : {0}", state));
             }
             state = BookConstants.BookState.LOST;
         }
@@ -87,7 +86,7 @@ namespace Library.Impl.Entities
         {
             if (!(state == BookConstants.BookState.DAMAGED))
             {
-                throw new IllegalStateException(String.Format("Illegal operation in state : {0}", state));
+                throw new ApplicationException(String.Format("Illegal operation in state : {0}", state));
             }
             state = BookConstants.BookState.AVAILABLE;
         }
@@ -98,7 +97,7 @@ namespace Library.Impl.Entities
                   state == BookConstants.BookState.DAMAGED || 
                   state == BookConstants.BookState.LOST))
             {
-                throw new IllegalStateException(String.Format("Illegal operation in state : {0}", state));
+                throw new ApplicationException(String.Format("Illegal operation in state : {0}", state));
             }
             state = BookConstants.BookState.DISPOSED;
         }
@@ -131,6 +130,18 @@ namespace Library.Impl.Entities
         public int ID
         {
             get { return id; }
+        }
+
+        public override string ToString() 
+        {
+            string cr = Environment.NewLine;
+		    return String.Format("{1,-20}\t{2} {0}{3,-20}\t{4} {0}{5,-20}\t{6} {0}{7,-20}\t{8}",
+				                  cr, 
+                                  "Id:          ",id, 
+                                  "Call Number: ",callNumber, 
+                                  "Author:      ",author, 
+                                  "Title:       ",title );
+
         }
     }
 }

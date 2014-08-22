@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryBorrowBook", "Window
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "LibraryInterfaces\Library.csproj", "{9BE0FA84-04AE-4C91-850E-0D2134974EEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryTests", "LibraryTests\LibraryTests.csproj", "{55B5E728-C1BA-4902-B476-79292E68FE0D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{9BE0FA84-04AE-4C91-850E-0D2134974EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BE0FA84-04AE-4C91-850E-0D2134974EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BE0FA84-04AE-4C91-850E-0D2134974EEB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{55B5E728-C1BA-4902-B476-79292E68FE0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{55B5E728-C1BA-4902-B476-79292E68FE0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{55B5E728-C1BA-4902-B476-79292E68FE0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{55B5E728-C1BA-4902-B476-79292E68FE0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

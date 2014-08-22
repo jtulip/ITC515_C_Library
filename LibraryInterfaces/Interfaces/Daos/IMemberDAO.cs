@@ -7,17 +7,20 @@ namespace Library.Interfaces.Daos
 {
     public interface IMemberDAO
     {
-        IMember AddMember(string firstName, string lastName, string ContactPhone, string emailAddress);
+        IMember AddMember(string firstName, string lastName, string contactPhone, string emailAddress);
 
-        IMember getMemberByID(int id);
+        IMember GetMemberByID(int id);
 
-        List<IMember> listMembers();
+        List<IMember> MemberList
+        {
+            get;
+        }
 
-        List<IMember> findMembersByLastName(string lastName);
+        List<IMember> FindMembersByLastName(string lastName);
 
-        List<IMember> findMembersByEmailAddress(string emailAddress);
+        List<IMember> FindMembersByEmailAddress(string emailAddress);
 
-        List<IMember> findMembersByNames(string firstName, string lastName);
+        List<IMember> FindMembersByNames(string firstName, string lastName);
 
     }
 }

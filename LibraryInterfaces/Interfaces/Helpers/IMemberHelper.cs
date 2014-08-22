@@ -2,7 +2,7 @@
 
 namespace Library.Interfaces.Helpers
 {
-    interface IMemberHelper
+    public interface IMemberHelper
     {
         IMember MakeMember(string firstName, string lastName, string contactPhone, string emailAddress, int id);
 
