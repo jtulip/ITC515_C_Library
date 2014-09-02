@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{55B5E728-C1BA-4902-B476-79292E68FE0D}</ProjectGuid>
+    <ProjectGuid>{D225610A-ACCA-437A-A942-93235BEA0C09}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LibraryTests</RootNamespace>
@@ -53,19 +53,21 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="TestBook.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestMember.cs" />
     <Compile Include="TestBookDAO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BorrowBook\BorrowBook.csproj">
+      <Project>{4f74d79c-97aa-4dac-87fc-88050e229688}</Project>
+      <Name>BorrowBook</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibraryInterfaces\Library.csproj">
       <Project>{9be0fa84-04ae-4c91-850e-0d2134974eeb}</Project>
       <Name>Library</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
