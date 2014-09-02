@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Library.Interfaces.Controls;
 using Library.Interfaces.Entities;
 using Library.Interfaces.Daos;
 using Library.Interfaces.Uis;
 
-namespace Library
+namespace Library.Impl.Controls
+
 {
-    class BorrowBookCTL : IBorrowCTL
+    public class BorrowBookCTL : IBorrowCTL
     {
-        private IBookDAO    bookDAO;
+        private IBookDAO bookDAO;
         private IMemberDAO memberDAO;
         private ILoanDAO loanDAO;
         private IBorrowUI ui;
@@ -27,24 +25,26 @@ namespace Library
 
         bool overdue, atLoanLimit, overFineLimit, further_borrowing_allowed;
         int existingLoanCount, pendingLoanCount;
-        
-        public BorrowBookCTL(IBookDAO bookDAO, IMemberDAO memberDAO, ILoanDAO loanDAO, IBorrowUI ui) {
 
-		if (bookDAO == null || memberDAO == null || loanDAO == null || ui == null) {
-			throw new ArgumentException(String.Format("BorrowCTL : constructor : parameters cannot be null."));
-		}
-		this.bookDAO = bookDAO;
-		this.memberDAO = memberDAO;
-		this.loanDAO = loanDAO;	
-		this.ui = ui;
-		overdue = atLoanLimit = overFineLimit = false;
-		further_borrowing_allowed = true;
-		existingLoanCount = 0;
-		pendingLoanCount = 0;
-		bookList = new List<IBook>();
-	}
+        public BorrowBookCTL(IBookDAO bookDAO, IMemberDAO memberDAO, ILoanDAO loanDAO, IBorrowUI ui)
+        {
 
-        public void initialise()
+            if (bookDAO == null || memberDAO == null || loanDAO == null || ui == null)
+            {
+                throw new ArgumentException(String.Format("BorrowCTL : constructor : parameters cannot be null."));
+            }
+            this.bookDAO = bookDAO;
+            this.memberDAO = memberDAO;
+            this.loanDAO = loanDAO;
+            this.ui = ui;
+            overdue = atLoanLimit = overFineLimit = false;
+            further_borrowing_allowed = true;
+            existingLoanCount = 0;
+            pendingLoanCount = 0;
+            bookList = new List<IBook>();
+        }
+
+        public void Initialise()
         {
             state = BorrowCTLConstants.State.STARTED;
             ui.Initialise(this);
@@ -74,7 +74,7 @@ namespace Library
                 throw new ApplicationException(
                         String.Format("BorrowCTL : cardScanned : illegal operation in state: {0}", state));
             }
-            member = memberDAO.getMemberByID(memberID);
+            member = memberDAO.GetMemberByID(memberID);
             if (member == null)
             {
                 throw new ApplicationException(String.Format("BorrowCTL : cardScanned : memberID not found"));

@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Library.Interfaces.Entities;
@@ -28,10 +23,14 @@ namespace Library
             this.MinimizeBox = false;
             this.MaximizeBox = false;
 
+            string cr = Environment.NewLine;
+            IMember mem = loanList[0].Borrower;
             StringBuilder bld = new StringBuilder();
+            bld.Append(mem.ToString()).Append(cr).Append(cr);
+
             foreach (ILoan loan in loanList)
             {
-                bld.Append(loan.ToString()).Append("\n\n");
+                bld.Append(loan.ToString()).Append(cr).Append(cr);
             }
             loanSlip_TB.Text = bld.ToString();
             loanSlip_TB.Select(0, 0);
@@ -40,6 +39,7 @@ namespace Library
 
         private void ok_BTN_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             this.Close();
         }
     }

@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BorrowBookCTL.cs" />
     <Compile Include="BorrowBookUI.cs">
       <SubType>Form</SubType>
     </Compile>

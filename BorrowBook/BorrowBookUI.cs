@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
-//using System.Drawing;
-//using System.Linq;
 using System.Text;
-//using System.Threading.Tasks;
-using Library.Interfaces.Uis;
 using System.Windows.Forms;
 
+using Library.Interfaces.Uis;
 using Library.Interfaces.Controls;
 using Library.Interfaces.Entities;
-using Library.Impl.Exceptions;
 
 namespace Library
 {
@@ -20,10 +14,13 @@ namespace Library
         private IBorrowCTL control;
         private List<ILoan> completedList;
 
+
         public BorrowBookUI()
         {
             InitializeComponent();
         }
+
+
         public void Initialise(IBorrowCTL control)
         {
             this.control = control;
@@ -49,6 +46,7 @@ namespace Library
             currentBook_TB.ReadOnly = true;
             existingLoan_TB.ReadOnly = true;
         }
+
 
         public void SetState(BorrowCTLConstants.State state)
         {
@@ -80,6 +78,8 @@ namespace Library
                     break;
                 case BorrowCTLConstants.State.CONFIRMED:
                     cancel_BTN.Enabled = false;
+                    continue_BTN.Enabled = false;
+                    complete_BTN.Enabled = false;
                     break;
                 case BorrowCTLConstants.State.CANCELLED:
                     break;
@@ -87,10 +87,11 @@ namespace Library
                     this.Close();
                     break;
                 default:
-                    this.Close();
+                    //this.Close();
                     break;
             }
         }
+
 
         public void DisplayBorrowerDetails(IMember borrower)
         {
@@ -102,7 +103,7 @@ namespace Library
 
             if (borrower.HasOverDueLoans)
             {
-                overdue_LBL.Text = "Borrower has overdue loans.";
+                overdue_LBL.Text = String.Format("Borrower has overdue loans.");
             }
             if (borrower.HasReachedFineLimit)
             {
@@ -112,41 +113,46 @@ namespace Library
             {
                 loanLimit_LBL.Text = String.Format("Borrower has reached maximum number of borrowed items permitted.");
             }
+            string cr = Environment.NewLine;
             StringBuilder bld = new StringBuilder();
             foreach (ILoan loan in borrower.Loans)
             {
-                bld.Append(loan.ToString()).Append("\n\n");
+                bld.Append(loan.ToString()).Append(cr).Append(cr);
             }
             existingLoan_TB.Text = bld.ToString();
             existingLoan_TB.Select(0, 0);
         }
 
+
         public void ScanBook()
         {
-            bookID_TB.ReadOnly = true;
+            bookID_TB.ReadOnly = false;
             bookID_TB.Focus();
             scan_BTN.Enabled = true;
             continue_BTN.Enabled = false;
             complete_BTN.Enabled = false;
         }
 
+
         public void DisplayBook(IBook book)
         {
-
             currentBook_TB.Text = book.ToString();
             currentBook_TB.Select(0, 0);
         }
 
+
         public void DisplayPendingList(List<ILoan> pendingList)
         {
+            string cr = Environment.NewLine;
             StringBuilder bld = new StringBuilder();
             foreach (ILoan loan in pendingList)
             {
-                bld.Append(loan.ToString()).Append("\n\n");
+                bld.Append(loan.ToString()).Append(cr).Append(cr);
             }
             pendingList_TB.Text = bld.ToString();
             pendingList_TB.Select(0, 0);
         }
+
 
         public void DisplayCompletedList(List<ILoan> completedList)
         {
@@ -155,12 +161,14 @@ namespace Library
             dlg.ShowDialog();
         }
 
+
         public void PrintLoanSlip()
         {
-            completedList = new List<ILoan>();
             Form dlg = new PrintLoanSlipDialog(this, completedList);
             dlg.ShowDialog();
+            control.BorrowUcEnded();
         }
+
 
         public void Reject()
         {
@@ -168,10 +176,12 @@ namespace Library
             control.RejectPendingList();
         }
 
+
         public void Accept()
         {
             control.ConfirmPendingList();
         }
+
 
         private void swipe_BTN_Click(object sender, EventArgs e)
         {
@@ -200,22 +210,24 @@ namespace Library
                 }
                 catch (ApplicationException)
                 {
-                    errMesg_LBL.Text = String.Format("Borrower ID {0}: not found.");
+                    errMesg_LBL.Text = String.Format("Borrower ID {0}: not found.", borrowerID);
                     memberID_TB.Text = "";
                 }
             }
         }
+
 
         private void cancel_BTN_Click(object sender, EventArgs e)
         {
             control.Cancel();
         }
 
+
         private void scan_BTN_Click(object sender, EventArgs e)
         {
             int bookID = 0;
             errMesg_LBL.Text = "";
-            string bookIDstr = bookID_TB.Text;
+            string bookIDstr = bookID_TB.Text.Trim();
 
             if (String.IsNullOrWhiteSpace(bookIDstr))
             {
@@ -229,30 +241,40 @@ namespace Library
                     if (bookID <= 0) throw new FormatException();
 
                     control.BookScanned(bookID);
-
+                    scan_BTN.Enabled = false;
+                    continue_BTN.Enabled = true;
+                    complete_BTN.Enabled = true;
+                    bookID_TB.ReadOnly = true;
                 }
+
                 catch (FormatException)
                 {
                     errMesg_LBL.Text = "Book ID must be a positive integer.";
+                    bookID_TB.Text = "";
                 }
+
                 catch (OverflowException)
                 {
                     errMesg_LBL.Text = "Book ID cannot be so big.";
+                    bookID_TB.Text = "";
                 }
+
                 catch (ApplicationException)
                 {
-                    errMesg_LBL.Text = String.Format("Book ID {0}: not found.");
+                    errMesg_LBL.Text = String.Format("Book ID {0}: not found.",bookID);
                     bookID_TB.Text = "";
                 }
             }
 
         }
 
+
         private void continue_BTN_Click(object sender, EventArgs e)
         {
             bookID_TB.Text = "";
             control.ScanNext();
         }
+
 
         private void complete_BTN_Click(object sender, EventArgs e)
         {

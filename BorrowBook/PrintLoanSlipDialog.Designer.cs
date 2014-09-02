@@ -48,6 +48,7 @@
             // loanSlip_TB
             // 
             this.loanSlip_TB.BackColor = System.Drawing.Color.White;
+            this.loanSlip_TB.Font = new System.Drawing.Font("Lucida Sans Typewriter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loanSlip_TB.Location = new System.Drawing.Point(11, 30);
             this.loanSlip_TB.Multiline = true;
             this.loanSlip_TB.Name = "loanSlip_TB";

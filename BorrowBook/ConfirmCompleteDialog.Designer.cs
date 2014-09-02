@@ -32,7 +32,7 @@
             this.currentLoan_TB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.reject_BTN = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.accept_BTN = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,7 @@
             // currentLoan_TB
             // 
             this.currentLoan_TB.BackColor = System.Drawing.Color.White;
+            this.currentLoan_TB.Font = new System.Drawing.Font("Lucida Sans Typewriter", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentLoan_TB.Location = new System.Drawing.Point(7, 30);
             this.currentLoan_TB.Multiline = true;
             this.currentLoan_TB.Name = "currentLoan_TB";
@@ -80,23 +81,23 @@
             this.reject_BTN.UseVisualStyleBackColor = true;
             this.reject_BTN.Click += new System.EventHandler(this.reject_BTN_Click);
             // 
-            // button1
+            // accept_BTN
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(339, 296);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 30);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Accept";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.accept_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accept_BTN.Location = new System.Drawing.Point(339, 296);
+            this.accept_BTN.Name = "accept_BTN";
+            this.accept_BTN.Size = new System.Drawing.Size(102, 30);
+            this.accept_BTN.TabIndex = 2;
+            this.accept_BTN.Text = "Accept";
+            this.accept_BTN.UseVisualStyleBackColor = true;
+            this.accept_BTN.Click += new System.EventHandler(this.accept_BTN_Click);
             // 
             // ConfirmCompleteDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 338);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.accept_BTN);
             this.Controls.Add(this.reject_BTN);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -114,6 +115,6 @@
         private System.Windows.Forms.TextBox currentLoan_TB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button reject_BTN;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button accept_BTN;
     }
 }
